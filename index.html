@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agentic AI Acceleration Program</title>
+  <style>
+    :root {
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --mono: 'SF Mono', SFMono-Regular, Consolas, monospace;
+      --r: 10px
+    }
+
+    [data-theme="dark"] {
+      --bg-0: #0a0a0a;
+      --bg-1: #141414;
+      --bg-2: #1c1c1c;
+      --bg-3: #262626;
+      --tx-0: #f5f5f5;
+      --tx-1: #a3a3a3;
+      --tx-2: #636363;
+      --bd: #222;
+      --bd-h: #3a3a3a;
+      --accent: #3b82f6;
+      --accent2: #8b5cf6;
+      --accent-g: rgba(59, 130, 246, .08);
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --green-bg: rgba(34, 197, 94, .08);
+      --amber-bg: rgba(245, 158, 11, .08);
+      --red-bg: rgba(239, 68, 68, .08);
+      --green-tx: #4ade80;
+      --amber-tx: #fbbf24;
+      --red-tx: #f87171;
+    }
+
+    [data-theme="light"] {
+      --bg-0: #fafafa;
+      --bg-1: #fff;
+      --bg-2: #f5f5f5;
+      --bg-3: #e8e8e8;
+      --tx-0: #111;
+      --tx-1: #555;
+      --tx-2: #999;
+      --bd: #e0e0e0;
+      --bd-h: #ccc;
+      --accent: #2563eb;
+      --accent2: #7c3aed;
+      --accent-g: rgba(37, 99, 235, .06);
+      --green: #16a34a;
+      --amber: #d97706;
+      --red: #dc2626;
+      --green-bg: rgba(22, 163, 74, .06);
+      --amber-bg: rgba(217, 119, 6, .06);
+      --red-bg: rgba(220, 38, 38, .06);
+      --green-tx: #15803d;
+      --amber-tx: #b45309;
+      --red-tx: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg-0);
+      color: var(--tx-0);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.25rem
+    }
+
+    section {
+      padding: 4rem 0
+    }
+
+    @media(max-width:640px) {
+      section {
+        padding: 2.5rem 0
+      }
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, .8);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--bd)
+    }
+
+    [data-theme="light"] nav {
+      background: rgba(255, 255, 255, .8)
+    }
+
+    .nav-in {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -.01em;
+      color: var(--tx-0)
+    }
+
+    .nav-brand span {
+      color: var(--accent)
+    }
+
+    .nav-r {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .t-btn {
+      background: var(--bg-2);
+      border: 1px solid var(--bd);
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: var(--tx-1);
+      font-size: 13px;
+      font-family: var(--font);
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .t-btn:hover {
+      border-color: var(--bd-h);
+      color: var(--tx-0)
+    }
+
+    .wa-nav {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity .2s
+    }
+
+    .wa-nav:hover {
+      opacity: .85
+    }
+
+    .wa-icon {
+      width: 14px;
+      height: 14px;
+      fill: currentColor
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 5rem 0 4rem;
+      text-align: center
+    }
+
+    @media(max-width:640px) {
+      .hero {
+        padding: 3rem 0 2.5rem
+      }
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent);
+      background: var(--accent-g);
+      border: 1px solid rgba(59, 130, 246, .2);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 1.25rem
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+      margin-bottom: 1rem
+    }
+
+    .hero h1 .grad {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-sub {
+      font-size: clamp(.95rem, 2.5vw, 1.15rem);
+      color: var(--tx-1);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.65
+    }
+
+    .hero-metrics {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap
+    }
+
+    .hm {
+      text-align: center
+    }
+
+    .hm-num {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      font-family: var(--mono);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hm-label {
+      font-size: 13px;
+      color: var(--tx-2);
+      margin-top: 2px
+    }
+
+    /* ─── VALUE PROPS ─── */
+    .vp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    @media(max-width:640px) {
+      .vp-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .vp-card {
+      background: var(--bg-1);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.5rem;
+      transition: border-color .2s, background .3s
+    }
+
+    .vp-card:hover {
+      border-color: var(--bd-h)
+    }
+
+    .vp-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .75rem;
+      font-size: 18px
+    }
+
+    .vp-icon-blue {
+      background: rgba(59, 130, 246, .1);
+      color: #60a5fa
+    }
+
+    .vp-icon-green {
+      background: rgba(34, 197, 94, .1);
+      color: #4ade80
+    }
+
+    .vp-icon-purple {
+      background: rgba(139, 92, 246, .1);
+      color: #a78bfa
+    }
+
+    .vp-icon-amber {
+      background: rgba(245, 158, 11, .1);
+      color: #fbbf24
+    }
+
+    [data-theme="light"] .vp-icon-blue {
+      color: #2563eb
+    }
+
+    [data-theme="light"] .vp-icon-green {
+      color: #16a34a
+    }
+
+    [data-theme="light"] .vp-icon-purple {
+      color: #7c3aed
+    }
+
+    [data-theme="light"] .vp-icon-amber {
+      color: #d97706
+    }
+
+    .vp-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    .vp-desc {
+      font-size: 14px;
+      color: var(--tx-1);
+      line-height: 1.6
+    }
+
+    /* ─── SECTION HEADERS ─── */
+    .sh {
+      text-align: center;
+      margin-bottom: 2.5rem
+    }
+
+    .sh h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: .5rem
+    }
+
+    .sh p {
+      color: var(--tx-1);
+      font-size: 15px;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6
+    }
+
+    /* ─── TIMELINE ─── */
+    .tl {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      position: relative
+    }
+
+    @media(max-width:640px) {
+      .tl {
+        grid-template-columns: 1fr;
+        gap: 10px
+      }
+    }
+
+    .tl-card {
+      background: var(--bg-1);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.5rem;
+      position: relative;
+      transition: border-color .2s, background .3s
+    }
+
+    .tl-card:hover {
+      border-color: var(--bd-h)
+    }
+
+    .tl-phase {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: 6px
+    }
+
+    .tl-when {
+      font-size: 12px;
+      color: var(--tx-2);
+      margin-bottom: .75rem
+    }
+
+    .tl-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .tl-desc {
+      font-size: 14px;
+      color: var(--tx-1);
+      line-height: 1.6
+    }
+
+    .tl-num {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: var(--mono);
+      color: var(--bg-3);
+      line-height: 1
+    }
+
+    /* ─── IMPACT ─── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    @media(max-width:640px) {
+      .impact-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .impact-card {
+      background: var(--bg-1);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.75rem;
+      transition: border-color .2s, background .3s
+    }
+
+    .impact-card:hover {
+      border-color: var(--bd-h)
+    }
+
+    .impact-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: .75rem
+    }
+
+    .impact-tag-micro {
+      background: var(--green-bg);
+      color: var(--green-tx)
+    }
+
+    .impact-tag-macro {
+      background: var(--accent-g);
+      color: var(--accent)
+    }
+
+    .impact-h {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .impact-p {
+      font-size: 14px;
+      color: var(--tx-1);
+      line-height: 1.65
+    }
+
+    /* ─── USE CASES ─── */
+    .uc-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      align-items: center
+    }
+
+    .uc-search {
+      flex: 1;
+      min-width: 160px;
+      position: relative
+    }
+
+    .uc-search svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--tx-2);
+      pointer-events: none
+    }
+
+    .uc-search input {
+      width: 100%;
+      padding: 8px 10px 8px 32px;
+      background: var(--bg-1);
+      border: 1px solid var(--bd);
+      border-radius: 8px;
+      color: var(--tx-0);
+      font-size: 13px;
+      font-family: var(--font);
+      transition: border-color .2s
+    }
+
+    .uc-search input:focus {
+      outline: none;
+      border-color: var(--accent)
+    }
+
+    .uc-search input::placeholder {
+      color: var(--tx-2)
+    }
+
+    .uc-sel {
+      padding: 8px 26px 8px 10px;
+      background: var(--bg-1);
+      border: 1px solid var(--bd);
+      border-radius: 8px;
+      color: var(--tx-0);
+      font-size: 13px;
+      font-family: var(--font);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23636363' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      cursor: pointer;
+      transition: border-color .2s
+    }
+
+    .uc-sel:focus {
+      outline: none;
+      border-color: var(--accent)
+    }
+
+    .pills {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      margin-bottom: 1rem
+    }
+
+    .pills::-webkit-scrollbar {
+      display: none
+    }
+
+    .pill {
+      padding: 5px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      border: 1px solid var(--bd);
+      background: var(--bg-1);
+      color: var(--tx-1);
+      transition: all .2s;
+      flex-shrink: 0
+    }
+
+    .pill:hover {
+      border-color: var(--bd-h);
+      color: var(--tx-0)
+    }
+
+    .pill.on {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff
+    }
+
+    .uc-slider {
+      position: relative
+    }
+
+    .uc-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px
+    }
+
+    @media(max-width:900px) {
+      .uc-track {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:640px) {
+      .uc-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 10px;
+        padding-bottom: 6px
+      }
+
+      .uc-track::-webkit-scrollbar {
+        display: none
+      }
+    }
+
+    .uc-card {
+      background: var(--bg-1);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .2s, background .3s;
+      scroll-snap-align: start
+    }
+
+    @media(max-width:640px) {
+      .uc-card {
+        flex: 0 0 85vw;
+        max-width: 85vw
+      }
+    }
+
+    .uc-card:hover {
+      border-color: var(--bd-h)
+    }
+
+    .uc-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px
+    }
+
+    .uc-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      flex: 1
+    }
+
+    .uc-id {
+      font-size: 11px;
+      font-family: var(--mono);
+      color: var(--tx-2);
+      background: var(--bg-2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap
+    }
+
+    .uc-badges {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap
+    }
+
+    .uc-badge {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600
+    }
+
+    .cx-s {
+      background: var(--green-bg);
+      color: var(--green-tx)
+    }
+
+    .cx-m {
+      background: var(--amber-bg);
+      color: var(--amber-tx)
+    }
+
+    .cx-c {
+      background: var(--red-bg);
+      color: var(--red-tx)
+    }
+
+    .dom-b {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--bg-2);
+      color: var(--tx-1)
+    }
+
+    .uc-hr {
+      border: none;
+      border-top: 1px solid var(--bd);
+      margin: 0
+    }
+
+    .uc-cost {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: var(--mono)
+    }
+
+    .uc-cost-label {
+      font-size: 11px;
+      color: var(--tx-2)
+    }
+
+    .uc-bar {
+      display: flex;
+      height: 4px;
+      border-radius: 2px;
+      overflow: hidden;
+      gap: 1px;
+      background: var(--bg-3);
+      margin-top: 6px
+    }
+
+    .cb-llm {
+      background: #3b82f6
+    }
+
+    .cb-stt {
+      background: #22c55e
+    }
+
+    .cb-emb {
+      background: #f59e0b
+    }
+
+    .cb-vdb {
+      background: #8b5cf6
+    }
+
+    .cb-tts {
+      background: #ef4444
+    }
+
+    .cb-oth {
+      background: #737373
+    }
+
+    .uc-bk {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px
+    }
+
+    .bk {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      color: var(--tx-1)
+    }
+
+    .bk-d {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0
+    }
+
+    .stk-row {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap
+    }
+
+    .stk {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid var(--bd);
+      color: var(--tx-1);
+      font-family: var(--mono);
+      white-space: nowrap
+    }
+
+    .stk-llm {
+      border-color: rgba(59, 130, 246, .25);
+      color: #60a5fa;
+      background: rgba(59, 130, 246, .06)
+    }
+
+    .stk-stt {
+      border-color: rgba(34, 197, 94, .25);
+      color: #4ade80;
+      background: rgba(34, 197, 94, .06)
+    }
+
+    .stk-emb {
+      border-color: rgba(245, 158, 11, .25);
+      color: #fbbf24;
+      background: rgba(245, 158, 11, .06)
+    }
+
+    .stk-vdb {
+      border-color: rgba(139, 92, 246, .25);
+      color: #a78bfa;
+      background: rgba(139, 92, 246, .06)
+    }
+
+    .stk-tts {
+      border-color: rgba(239, 68, 68, .25);
+      color: #f87171;
+      background: rgba(239, 68, 68, .06)
+    }
+
+    .stk-oth {
+      border-color: rgba(115, 115, 115, .25);
+      color: #a3a3a3;
+      background: rgba(115, 115, 115, .06)
+    }
+
+    [data-theme="light"] .stk-llm {
+      color: #2563eb
+    }
+
+    [data-theme="light"] .stk-stt {
+      color: #16a34a
+    }
+
+    [data-theme="light"] .stk-emb {
+      color: #d97706
+    }
+
+    [data-theme="light"] .stk-vdb {
+      color: #7c3aed
+    }
+
+    [data-theme="light"] .stk-tts {
+      color: #dc2626
+    }
+
+    [data-theme="light"] .stk-oth {
+      color: #525252
+    }
+
+    .uc-pager {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 1.25rem
+    }
+
+    .pg-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--bd);
+      background: var(--bg-1);
+      color: var(--tx-1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s
+    }
+
+    .pg-btn:hover {
+      border-color: var(--bd-h);
+      color: var(--tx-0)
+    }
+
+    .pg-btn:disabled {
+      opacity: .25;
+      cursor: default
+    }
+
+    .pg-info {
+      font-size: 13px;
+      color: var(--tx-2)
+    }
+
+    @media(max-width:640px) {
+      .uc-pager .pg-btn {
+        display: none
+      }
+
+      .uc-pager .pg-info::after {
+        content: " — swipe to browse";
+      }
+    }
+
+    .uc-empty {
+      text-align: center;
+      padding: 2rem;
+      color: var(--tx-2);
+      font-size: 14px;
+      grid-column: 1/-1
+    }
+
+    /* ─── LEGEND ─── */
+    .legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: var(--tx-2);
+      margin-top: 1rem
+    }
+
+    .lg-i {
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .lg-d {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      text-align: center;
+      padding: 4rem 0 5rem
+    }
+
+    @media(max-width:640px) {
+      .cta {
+        padding: 2.5rem 0 3rem
+      }
+    }
+
+    .cta h2 {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: .75rem
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: var(--tx-1);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.65
+    }
+
+    .cta-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: var(--r);
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s
+    }
+
+    .cta-wa:hover {
+      opacity: .9;
+      transform: translateY(-1px)
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--bd);
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--tx-2)
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-in">
+      <div class="nav-brand">Agentic AI <span>Acceleration</span></div>
+      <div class="nav-r">
+        <button class="t-btn" onclick="toggleTheme()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg><span id="tl">Light</span></button>
+        <a class="wa-nav" href="https://wa.me/6285156932989" target="_blank" rel="noopener"><svg class="wa-icon"
+            viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-tag">Agentic AI Acceleration Program</div>
+      <h1>Bypass the Proof of Concept.<br><span class="grad">Production-Ready AI in 30 Days.</span></h1>
+      <p class="hero-sub">We fully absorb your pilot costs and deliver production-ready Agentic AI solutions — with zero
+        financial risk and zero cloud spend from you.</p>
+      <div class="hero-metrics">
+        <div class="hm">
+          <div class="hm-num">30</div>
+          <div class="hm-label">Days to Production</div>
+        </div>
+        <div class="hm">
+          <div class="hm-num">$0</div>
+          <div class="hm-label">Upfront Cloud Cost</div>
+        </div>
+        <div class="hm">
+          <div class="hm-num">50+</div>
+          <div class="hm-label">Proven Use Cases</div>
+        </div>
+        <div class="hm">
+          <div class="hm-num">100%</div>
+          <div class="hm-label">Code Ownership</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION -->
+  <section>
+    <div class="wrap">
+      <div class="sh">
+        <h2>The Frictionless Value Proposition</h2>
+        <p>Everything you need to go from idea to production AI — with nothing holding you back.</p>
+      </div>
+      <div class="vp-grid">
+        <div class="vp-card">
+          <div class="vp-icon vp-icon-blue">$</div>
+          <div class="vp-title">Zero Cloud Spend</div>
+          <div class="vp-desc">We fund your new hyperscaler account (Azure, AWS, GCP, or Alibaba) for the first two
+            months. Zero cloud spend required from you.</div>
+        </div>
+        <div class="vp-card">
+          <div class="vp-icon vp-icon-green">&#9889;</div>
+          <div class="vp-title">Real Production, Not PoC</div>
+          <div class="vp-desc">We don't build disposable Proof of Concepts. By the end of Month 1, you receive a
+            production-ready AI solution built for your specific enterprise challenges.</div>
+        </div>
+        <div class="vp-card">
+          <div class="vp-icon vp-icon-purple">&#128274;</div>
+          <div class="vp-title">Absolute Ownership</div>
+          <div class="vp-desc">No vendor lock-in. Everything produced operates under a Perpetual Model License. You own
+            the code completely and are free to develop it further.</div>
+        </div>
+        <div class="vp-card">
+          <div class="vp-icon vp-icon-amber">&#9878;</div>
+          <div class="vp-title">CoE Partnership</div>
+          <div class="vp-desc">We act as an acceleration engine for your internal AI Center of Excellence, partnering to
+            produce highly impactful, scalable implementations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 60-DAY BLUEPRINT -->
+  <section
+    style="background:var(--bg-1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:background .3s">
+    <div class="wrap">
+      <div class="sh">
+        <h2>The 60-Day Acceleration Blueprint</h2>
+        <p>From discovery workshop to validated ROI — a clear, time-boxed path to enterprise AI.</p>
+      </div>
+      <div class="tl">
+        <div class="tl-card">
+          <div class="tl-num">1</div>
+          <div class="tl-phase">Phase 1: Discover</div>
+          <div class="tl-when">Weeks 1 &ndash; 2</div>
+          <div class="tl-title">Identify High-Impact Use Cases</div>
+          <div class="tl-desc">Targeted workshops with your team to identify quick-win use cases capable of delivering
+            real, calculated ROI immediately.</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-num">2</div>
+          <div class="tl-phase">Phase 2: Deploy</div>
+          <div class="tl-when">Month 1</div>
+          <div class="tl-title">Build Production-Ready AI</div>
+          <div class="tl-desc">Rapid development of the targeted use case. Delivery of a fully operational,
+            production-ready enterprise AI pilot.</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-num">3</div>
+          <div class="tl-phase">Phase 3: Decide</div>
+          <div class="tl-when">Month 2</div>
+          <div class="tl-title">Validate ROI &amp; Scale</div>
+          <div class="tl-desc">Realize the value and validate ROI. Scale across the enterprise, or cleanly close the
+            account — no hidden commitments.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVEN IMPACT -->
+  <section>
+    <div class="wrap">
+      <div class="sh">
+        <h2>Proven Enterprise Impact</h2>
+        <p>Two paths to transformation — start with quick wins, scale to full modernization.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-tag impact-tag-micro">Micro Impact</div>
+          <div class="impact-h">Productivity Quick Wins</div>
+          <div class="impact-p">Applying Agentic AI to highly specific, manual enterprise tasks. Demonstrable track
+            record of eliminating manual processing bottlenecks, generating clear calculated ROI, and rapidly
+            recapturing lost hours for enterprise teams.</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-tag impact-tag-macro">Macro Impact</div>
+          <div class="impact-h">System Modernization</div>
+          <div class="impact-p">Full-scale application modernization utilizing an Agentic AI First approach. Radically
+            reinventing legacy processes and enterprise tools from the ground up to operate natively with autonomous AI
+            agents.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="usecases"
+    style="background:var(--bg-1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:background .3s">
+    <div class="wrap">
+      <div class="sh">
+        <h2>50 Production-Ready Use Cases</h2>
+        <p>Each use case includes full cost modeling, tech stack, and scaling assumptions.</p>
+      </div>
+      <div class="uc-controls">
+        <div class="uc-search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          <input type="text" id="q" placeholder="Search..." oninput="render()">
+        </div>
+        <select class="uc-sel" id="cx" onchange="render()">
+          <option value="">All complexity</option>
+          <option value="Simple">Simple</option>
+          <option value="Medium">Medium</option>
+          <option value="Complex">Complex</option>
+        </select>
+        <select class="uc-sel" id="sort" onchange="render()">
+          <option value="id">Sort: ID</option>
+          <option value="cost_asc">Cost: Low → High</option>
+          <option value="cost_desc">Cost: High → Low</option>
+          <option value="name">A → Z</option>
+        </select>
+      </div>
+      <div class="pills" id="pills"></div>
+      <div class="uc-track" id="track"></div>
+      <div class="uc-pager">
+        <button class="pg-btn" id="prevBtn" onclick="page(-1)"><svg width="14" height="14" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg></button>
+        <span class="pg-info" id="pgInfo"></span>
+        <button class="pg-btn" id="nextBtn" onclick="page(1)"><svg width="14" height="14" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg></button>
+      </div>
+      <div class="legend">
+        <span style="font-weight:600;color:var(--tx-1)">Cost:</span>
+        <div class="lg-i">
+          <div class="lg-d" style="background:#3b82f6"></div>LLM
+        </div>
+        <div class="lg-i">
+          <div class="lg-d" style="background:#22c55e"></div>STT
+        </div>
+        <div class="lg-i">
+          <div class="lg-d" style="background:#f59e0b"></div>Embed
+        </div>
+        <div class="lg-i">
+          <div class="lg-d" style="background:#8b5cf6"></div>VDB
+        </div>
+        <div class="lg-i">
+          <div class="lg-d" style="background:#ef4444"></div>TTS
+        </div>
+        <div class="lg-i">
+          <div class="lg-d" style="background:#737373"></div>Other
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>One Conversation. One Agreement.<br>We Do the Rest.</h2>
+      <p class="cta-sub">Simply authorize the creation of the hyperscaler account. We instantly fund the baseline costs,
+        initiate the discovery workshop, and begin building your production-ready AI.</p>
+      <a class="cta-wa" href="https://wa.me/6285156932989" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        Start the Conversation
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">Agentic AI Acceleration Program &middot; Enterprise AI Solutions</div>
+  </footer>
+
+  <script>
+    const D = [
+      [1, "Hourly email analysis & report", "Operations", "Simple", "-", "gpt-4o-mini", 7200, 600, 200, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "10 emails/hr x 720 hrs = 7,200 runs/mo. Avg 400T in; 200T JSON out."],
+      [2, "Meeting transcript → action items", "Operations", "Simple", "-", "gpt-4o-mini", 500, 4000, 800, 0.15, 0.60, "Whisper", 250, 0.36, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "500 meetings/mo avg 30 min = 250 audio hrs. Whisper + GPT-4o-mini."],
+      [3, "Support ticket auto-classifier", "Operations", "Simple", "-", "gpt-4o-mini", 10000, 420, 80, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "10K tickets/mo. Category, priority, team, confidence output."],
+      [4, "Invoice PDF data extractor", "Finance", "Simple", "-", "gpt-4o", 2000, 2800, 600, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "2K invoices/mo via GPT-4o Vision. Structured JSON extraction."],
+      [5, "Daily news intelligence brief", "Operations", "Simple", "-", "gpt-4o-mini", 30, 8500, 1200, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "1 brief/day. 15 articles aggregated into structured brief."],
+      [6, "Git commits → release notes", "Engineering", "Simple", "-", "gpt-4o-mini", 100, 2200, 700, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "100 releases/mo. Commit msgs to markdown changelog."],
+      [7, "HR policy Q&A chatbot", "HR & People", "Simple", "-", "gpt-4o-mini", 2000, 2800, 450, 0.15, 0.60, "-", 0, 0, "te-3-small", 0.5, 0.020, "Pinecone", "Free", 0, 0.5, 0, "-", 0, 0, "-", 0, "2K queries/mo. RAG over HR handbook."],
+      [8, "Expense receipt categorizer", "Finance", "Simple", "-", "gpt-4o-mini", 5000, 750, 100, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "5K receipts/mo. GL code, category, tax flag output."],
+      [9, "Log error batch summarizer", "IT Infrastructure", "Simple", "-", "gpt-4o-mini", 1000, 2100, 350, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "1K error bursts/mo. Root cause + remediation hints."],
+      [10, "Product review sentiment monitor", "Sales / CRM", "Simple", "-", "gpt-4o-mini", 10000, 320, 60, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "10K reviews/mo. Sentiment score + themes + escalation."],
+      [11, "Contract keyword tagger", "Legal", "Simple", "-", "gpt-4o-mini", 500, 5500, 250, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "500 contracts/mo. Clause tagging + risk flags."],
+      [12, "Sales call → CRM note generator", "Sales / CRM", "Simple", "-", "gpt-4o-mini", 1000, 3500, 800, 0.15, 0.60, "Whisper", 500, 0.36, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "1K calls/mo. BANT, objections, next steps extraction."],
+      [13, "Job application pre-screener", "HR & People", "Simple", "-", "gpt-4o-mini", 2000, 2600, 350, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "2K CVs/mo. Fit score, match reasons, missing skills."],
+      [14, "SLA breach context explainer", "IT Infrastructure", "Simple", "-", "gpt-4o-mini", 500, 2800, 450, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "500 breaches/mo. Explanation + corrective actions."],
+      [15, "Natural language → SQL generator", "Engineering", "Simple", "-", "gpt-4o", 3000, 1700, 450, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "3K requests/mo. Schema-aware SQL generation."],
+      [16, "RFP / tender document analyzer", "Sales / CRM", "Medium", "Sales Modernization", "gpt-4o", 200, 16000, 3500, 2.50, 10.00, "-", 0, 0, "te-3-small", 3, 0.020, "Pinecone", "~$5/mo", 5, 5, 0.025, "-", 0, 0, "-", 0, "200 RFPs/mo. Full analysis with past-RFP RAG library."],
+      [17, "IT incident root cause analysis", "IT Infrastructure", "Medium", "AIOps Platform", "gpt-4o", 500, 8500, 1800, 2.50, 10.00, "-", 0, 0, "te-3-small", 2, 0.020, "Pinecone", "~$5/mo", 5, 3, 0.025, "-", 0, 0, "-", 0, "500 incidents/mo. Correlated logs + RAG runbooks."],
+      [18, "Competitive intelligence report", "Sales / CRM", "Medium", "-", "gpt-4o", 100, 14000, 2500, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "100 reports/mo. SWOT + positioning matrix output."],
+      [19, "Multi-language intent router", "Operations", "Medium", "Contact Center AI", "gpt-4o-mini", 20000, 650, 120, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "20K messages/mo. Language + intent + routing in one call."],
+      [20, "Procurement price anomaly explainer", "Finance", "Medium", "Finance AI Suite", "gpt-4o", 300, 5500, 1400, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "300 anomalies/mo. Price history + market benchmark analysis."],
+      [21, "Employee onboarding AI assistant", "HR & People", "Medium", "-", "gpt-4o-mini", 1000, 3800, 700, 0.15, 0.60, "-", 0, 0, "te-3-small", 0.5, 0.020, "Pinecone", "Free", 0, 1, 0, "-", 0, 0, "-", 0, "1K interactions/mo. RAG over HR handbook for new hires."],
+      [22, "Knowledge base auto-updater", "Operations", "Medium", "-", "gpt-4o", 1000, 5500, 1800, 2.50, 10.00, "-", 0, 0, "te-3-small", 5, 0.020, "Pinecone", "~$8/mo", 8, 10, 0.025, "-", 0, 0, "-", 0, "1K tickets analyzed/mo. Auto-drafts KB articles."],
+      [23, "Budget variance narrative generator", "Finance", "Medium", "Finance AI Suite", "gpt-4o-mini", 100, 8500, 2200, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "100 reports/mo. P&L actuals vs budget narratives."],
+      [24, "Vendor scorecard auto-generator", "Finance", "Medium", "-", "gpt-4o", 200, 8500, 2200, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "200 vendor reviews/mo. Multi-signal scored cards."],
+      [25, "Field service voice → work order", "Operations", "Medium", "-", "gpt-4o-mini", 2000, 2200, 600, 0.15, 0.60, "Whisper", 667, 0.36, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "2K reports/mo. Voice to structured ERP work orders."],
+      [26, "Code review auto-commenter", "Engineering", "Medium", "DevSecOps AI", "gpt-4o", 500, 8500, 2200, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "500 PRs/mo. Diff analysis + OWASP-aware comments."],
+      [27, "Legal document diff & redline", "Legal", "Medium", "-", "gpt-4o", 100, 22000, 5500, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "100 contract pairs/mo. Tracked-change suggestions."],
+      [28, "Churn risk narrative explainer", "Sales / CRM", "Medium", "CRM AI Augmentation", "gpt-4o-mini", 2000, 2200, 550, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "2K accounts/mo. Risk narrative + retention recs."],
+      [29, "API documentation auto-generator", "Engineering", "Medium", "DevSecOps AI", "gpt-4o", 200, 6500, 3200, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "200 endpoints/mo. Full reference page generation."],
+      [30, "Multi-source market intelligence", "Sales / CRM", "Medium", "-", "gpt-4o", 50, 28000, 5500, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "50 briefs/mo. Multi-source synthesis + competitor matrix."],
+      [31, "Annual report compliance", "Compliance", "Complex", "Regulatory AI Platform", "claude-3-5-sonnet", 100, 55000, 9000, 3.00, 15.00, "-", 0, 0, "mE5-large", 10, 0, "LanceDB", "Self-hosted", 0, 50, 0, "-", 0, 0, "Agno AgentOS", 30, "100 reports/mo. 300+ criteria parallel agent analysis."],
+      [32, "Multi-agent cloud LZ provisioner", "IT Infrastructure", "Complex", "Cloud LZ Automation", "gpt-4o", 500, 32000, 5500, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "Agno OSS", 0, "500 runs/mo. Plan→Review→Execute→Audit pipeline."],
+      [33, "Intelligent document processing", "Finance", "Complex", "Finance AI Suite", "gpt-4o", 5000, 5500, 1100, 2.50, 10.00, "-", 0, 0, "te-3-large", 25, 0.130, "LanceDB Cloud", "$25/mo", 25, 100, 0, "-", 0, 0, "-", 0, "5K docs/mo. Docling + GPT-4o Vision pipeline."],
+      [34, "AI-powered NOC autonomous agent", "IT Infrastructure", "Complex", "AIOps Platform", "gpt-4o", 1000, 27000, 3500, 2.50, 10.00, "-", 0, 0, "te-3-small", 5, 0.020, "LanceDB", "Self-hosted", 0, 20, 0, "-", 0, 0, "Agno OSS", 0, "1K incidents/mo. Auto-remediation with audit log."],
+      [35, "Enterprise RAG knowledge platform", "Operations", "Complex", "Enterprise AI Hub", "gpt-4o", 5000, 9000, 1800, 2.50, 10.00, "-", 0, 0, "te-3-large", 50, 0.130, "LanceDB Cloud", "$60/mo", 60, 500, 0, "-", 0, 0, "-", 0, "5K queries/mo against ~500K embedded docs."],
+      [36, "Customer 360 enrichment pipeline", "Sales / CRM", "Complex", "CRM AI Augmentation", "gpt-4o", 2000, 9000, 2200, 2.50, 10.00, "-", 0, 0, "te-3-small", 10, 0.020, "Pinecone", "$70/mo", 70, 30, 0, "-", 0, 0, "-", 0, "2K accounts/mo. Multi-signal 360 profiles."],
+      [37, "AI-driven capacity planning", "IT Infrastructure", "Complex", "AIOps Platform", "gpt-4o", 100, 22000, 5500, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "100 runs/mo. 90-day metrics + sizing recommendations."],
+      [38, "Multi-agent sales intelligence", "Sales / CRM", "Complex", "Sales Modernization", "gpt-4o", 500, 42000, 8500, 2.50, 10.00, "-", 0, 0, "te-3-small", 10, 0.020, "Pinecone", "$70/mo", 70, 30, 0, "-", 0, 0, "Agno OSS", 0, "500 briefs/mo. 5-agent research pipeline."],
+      [39, "Legacy code modernization", "Engineering", "Complex", "DevSecOps AI", "gpt-4o", 200, 55000, 16000, 2.50, 10.00, "-", 0, 0, "te-3-large", 100, 0.130, "LanceDB Cloud", "$60/mo", 60, 200, 0, "-", 0, 0, "-", 0, "200 module refactors/mo. 100M token codebase RAG."],
+      [40, "Real-time call center assist", "Operations", "Complex", "Contact Center AI", "gpt-4o-mini", 20000, 1800, 350, 0.15, 0.60, "Azure Speech", 5000, 1.00, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "20K calls/mo. Real-time STT + mid-call coaching."],
+      [41, "Supply chain risk monitor", "Operations", "Complex", "-", "gpt-4o", 500, 11000, 2200, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "500 assessments/mo. Multi-source risk scoring."],
+      [42, "Contract lifecycle management", "Legal", "Complex", "Legal AI Platform", "gpt-4o", 500, 22000, 5500, 2.50, 10.00, "-", 0, 0, "te-3-large", 50, 0.130, "LanceDB Cloud", "$25/mo", 25, 100, 0, "-", 0, 0, "-", 0, "500 contracts/mo. Full lifecycle + cross-contract RAG."],
+      [43, "AI-powered PMO risk dashboard", "Operations", "Complex", "-", "gpt-4o", 200, 11000, 3200, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "200 project reports/mo. Risk matrix + mitigation."],
+      [44, "Autonomous data quality monitor", "IT Infrastructure", "Complex", "Data Platform AI", "gpt-4o", 300, 9000, 1800, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "300 scans/mo. Anomaly detection + auto Jira tickets."],
+      [45, "Multi-modal product catalog enricher", "Sales / CRM", "Complex", "-", "gpt-4o", 5000, 3500, 1100, 2.50, 10.00, "-", 0, 0, "te-3-small", 20, 0.020, "Pinecone", "~$15/mo", 15, 20, 0.025, "-", 0, 0, "-", 0, "5K products/mo. Vision + SEO description generation."],
+      [46, "Regulatory change impact analyzer", "Compliance", "Complex", "Regulatory AI Platform", "gpt-4o", 200, 22000, 5500, 2.50, 10.00, "-", 0, 0, "te-3-large", 20, 0.130, "LanceDB Cloud", "$25/mo", 25, 50, 0, "-", 0, 0, "-", 0, "200 events/mo. Gap analysis + remediation roadmap."],
+      [47, "FinOps cloud cost advisor", "Finance", "Complex", "FinOps AI Suite", "gpt-4o-mini", 1000, 5500, 1100, 0.15, 0.60, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "-", 0, "1K analyses/mo. Cost optimization recommendations."],
+      [48, "Telco IVR + RAG assistant", "Operations", "Complex", "Contact Center AI", "gpt-4o", 30000, 5500, 900, 2.50, 10.00, "Whisper", 5000, 0.36, "te-3-large", 30, 0.130, "LanceDB Cloud", "$60/mo", 60, 200, 0, "TTS HD", 1.67, 30.00, "-", 0, "30K sessions/mo. Full voice pipeline: STT→RAG→LLM→TTS."],
+      [49, "ELZ drift monitor & remediation", "IT Infrastructure", "Complex", "Cloud LZ Automation", "gpt-4o", 300, 32000, 5500, 2.50, 10.00, "-", 0, 0, "-", 0, 0, "-", "-", 0, 0, 0, "-", 0, 0, "Agno OSS", 0, "300 drift runs/mo. Terraform remediation + audit log."],
+      [50, "Multi-agent intelligent emailbot", "Operations", "Complex", "Enterprise AI Hub", "gpt-4o", 5000, 9000, 1800, 2.50, 10.00, "-", 0, 0, "te-3-small", 10, 0.020, "LanceDB Cloud", "$25/mo", 25, 30, 0, "-", 0, 0, "Agno OSS", 0, "5K emails/mo. 4-agent pipeline: Classify→Extract→Route→Reply."]
+    ];
+
+    const X = { ID: 0, NAME: 1, DOMAIN: 2, CX: 3, PROG: 4, LLM: 5, EV: 6, TIN: 7, TOUT: 8, INP: 9, OUTP: 10, STT_SVC: 11, STT_H: 12, STT_P: 13, EMB: 14, EMB_M: 15, EMB_P: 16, VDB: 17, VDB_T: 18, VDB_PL: 19, VDB_GB: 20, VDB_GBP: 21, TTS: 22, TTS_M: 23, TTS_P: 24, OTH: 25, OTH_C: 26, NOTES: 27 };
+
+    function calc(r) {
+      const llm = (r[X.EV] * r[X.TIN] / 1e6) * r[X.INP] + (r[X.EV] * r[X.TOUT] / 1e6) * r[X.OUTP];
+      const stt = r[X.STT_H] * r[X.STT_P]; const emb = r[X.EMB_M] * r[X.EMB_P];
+      const vdb = r[X.VDB_PL] + r[X.VDB_GB] * r[X.VDB_GBP]; const tts = r[X.TTS_M] * r[X.TTS_P]; const oth = r[X.OTH_C];
+      return { llm, stt, emb, vdb, tts, oth, total: llm + stt + emb + vdb + tts + oth };
+    }
+
+    const DOMS = [...new Set(D.map(r => r[X.DOMAIN]))].sort();
+    let curDom = '', curPage = 0;
+    const PER_PAGE = () => window.innerWidth <= 640 ? 20 : 3; // mobile shows all in swipe track; desktop paginates
+
+    // Pills
+    function buildPills() {
+      document.getElementById('pills').innerHTML =
+        `<div class="pill ${curDom === '' ? 'on' : ''}" onclick="setDom('')">All</div>` +
+        DOMS.map(d => `<div class="pill ${curDom === d ? 'on' : ''}" onclick="setDom('${d}')">${d}</div>`).join('');
+    }
+    function setDom(d) { curDom = d; curPage = 0; buildPills(); render(); }
+
+    const fmt = n => n < 1 ? '$' + n.toFixed(2) : n < 100 ? '$' + n.toFixed(1) : '$' + Math.round(n).toLocaleString();
+    const fmtF = n => '$' + n.toFixed(2);
+
+    function filtered() {
+      const q = document.getElementById('q').value.toLowerCase();
+      const cx = document.getElementById('cx').value;
+      const sort = document.getElementById('sort').value;
+      let rows = D.filter(r => {
+        if (curDom && r[X.DOMAIN] !== curDom) return false;
+        if (cx && r[X.CX] !== cx) return false;
+        if (q && !r[X.NAME].toLowerCase().includes(q) && !r[X.NOTES].toLowerCase().includes(q) && !r[X.LLM].toLowerCase().includes(q)) return false;
+        return true;
+      }).map(r => ({ r, c: calc(r) }));
+      if (sort === 'cost_asc') rows.sort((a, b) => a.c.total - b.c.total);
+      else if (sort === 'cost_desc') rows.sort((a, b) => b.c.total - a.c.total);
+      else if (sort === 'name') rows.sort((a, b) => a.r[X.NAME].localeCompare(b.r[X.NAME]));
+      else rows.sort((a, b) => a.r[X.ID] - b.r[X.ID]);
+      return rows;
+    }
+
+    function render() {
+      const rows = filtered();
+      const pp = PER_PAGE();
+      const isMobile = window.innerWidth <= 640;
+      const totalPages = isMobile ? 1 : Math.max(1, Math.ceil(rows.length / pp));
+      if (curPage >= totalPages) curPage = totalPages - 1;
+      const visible = isMobile ? rows : rows.slice(curPage * pp, curPage * pp + pp);
+
+      const track = document.getElementById('track');
+      if (!visible.length) { track.innerHTML = '<div class="uc-empty">No use cases match your filters.</div>'; document.getElementById('pgInfo').textContent = ''; return; }
+
+      track.innerHTML = visible.map(({ r, c }) => {
+        const total = c.total;
+        const pct = n => total > 0 ? Math.max(2, Math.round(n / total * 100)) : 0;
+        const bar = total > 0 ? `<div class="uc-bar">${c.llm > 0 ? `<div class="cb-llm" style="flex:${pct(c.llm)}"></div>` : ''}${c.stt > 0 ? `<div class="cb-stt" style="flex:${pct(c.stt)}"></div>` : ''}${c.emb > 0 ? `<div class="cb-emb" style="flex:${pct(c.emb)}"></div>` : ''}${c.vdb > 0 ? `<div class="cb-vdb" style="flex:${pct(c.vdb)}"></div>` : ''}${c.tts > 0 ? `<div class="cb-tts" style="flex:${pct(c.tts)}"></div>` : ''}${c.oth > 0 ? `<div class="cb-oth" style="flex:${pct(c.oth)}"></div>` : ''}
+      </div><div class="uc-bk">${c.llm > 0 ? `<div class="bk"><div class="bk-d" style="background:#3b82f6"></div>LLM ${fmt(c.llm)}</div>` : ''}${c.stt > 0 ? `<div class="bk"><div class="bk-d" style="background:#22c55e"></div>STT ${fmt(c.stt)}</div>` : ''}${c.emb > 0 ? `<div class="bk"><div class="bk-d" style="background:#f59e0b"></div>Emb ${fmt(c.emb)}</div>` : ''}${c.vdb > 0 ? `<div class="bk"><div class="bk-d" style="background:#8b5cf6"></div>VDB ${fmt(c.vdb)}</div>` : ''}${c.tts > 0 ? `<div class="bk"><div class="bk-d" style="background:#ef4444"></div>TTS ${fmt(c.tts)}</div>` : ''}${c.oth > 0 ? `<div class="bk"><div class="bk-d" style="background:#737373"></div>Oth ${fmt(c.oth)}</div>` : ''}
+      </div>`: '';
+        const stacks = [
+          `<span class="stk stk-llm">${r[X.LLM]}</span>`,
+          r[X.STT_SVC] !== '-' ? `<span class="stk stk-stt">${r[X.STT_SVC]}</span>` : '',
+          r[X.EMB] !== '-' ? `<span class="stk stk-emb">${r[X.EMB]}</span>` : '',
+          r[X.VDB] !== '-' ? `<span class="stk stk-vdb">${r[X.VDB]}</span>` : '',
+          r[X.TTS] !== '-' ? `<span class="stk stk-tts">${r[X.TTS]}</span>` : '',
+          r[X.OTH] !== '-' ? `<span class="stk stk-oth">${r[X.OTH]}</span>` : '',
+        ].filter(Boolean).join('');
+        const cxc = r[X.CX] === 'Simple' ? 'cx-s' : r[X.CX] === 'Medium' ? 'cx-m' : 'cx-c';
+        return `<div class="uc-card">
+      <div class="uc-top"><div class="uc-name">${r[X.NAME]}</div><div class="uc-id">#${String(r[X.ID]).padStart(2, '0')}</div></div>
+      <div class="uc-badges"><span class="uc-badge ${cxc}">${r[X.CX]}</span><span class="dom-b">${r[X.DOMAIN]}</span></div>
+      <hr class="uc-hr">
+      <div><div style="display:flex;align-items:baseline;justify-content:space-between"><span class="uc-cost">${fmtF(total)}</span><span class="uc-cost-label">/ month</span></div>${bar}</div>
+      <hr class="uc-hr">
+      <div><div style="font-size:10px;font-weight:600;color:var(--tx-2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Tech Stack</div><div class="stk-row">${stacks}</div></div>
+      <hr class="uc-hr">
+      <div style="font-size:12px;color:var(--tx-1);line-height:1.5">${r[X.NOTES]}</div>
+    </div>`;
+      }).join('');
+
+      const info = document.getElementById('pgInfo');
+      if (isMobile) { info.textContent = `${rows.length} use cases`; }
+      else { info.textContent = `${curPage + 1} / ${totalPages}`; }
+      document.getElementById('prevBtn').disabled = curPage === 0;
+      document.getElementById('nextBtn').disabled = curPage >= totalPages - 1;
+    }
+
+    function page(d) { const rows = filtered(); const tp = Math.ceil(rows.length / PER_PAGE()); curPage = Math.max(0, Math.min(tp - 1, curPage + d)); render(); }
+
+    // Theme
+    function toggleTheme() {
+      const h = document.documentElement; const isDark = h.getAttribute('data-theme') === 'dark'; const n = isDark ? 'light' : 'dark';
+      h.setAttribute('data-theme', n); document.getElementById('tl').textContent = isDark ? 'Dark' : 'Light';
+      try { localStorage.setItem('theme', n); } catch (e) { }
+    }
+    (function () { let t = 'dark'; try { const s = localStorage.getItem('theme'); if (s) t = s; } catch (e) { } document.documentElement.setAttribute('data-theme', t); const l = document.getElementById('tl'); if (l) l.textContent = t === 'dark' ? 'Light' : 'Dark'; })();
+
+    buildPills(); render();
+    window.addEventListener('resize', render);
+  </script>
+</body>
+
+</html>
